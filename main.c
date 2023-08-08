@@ -6,44 +6,11 @@
 /*   By: Probook <Probook@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 13:10:31 by nmuminov          #+#    #+#             */
-/*   Updated: 2023/07/18 15:32:46 by Probook          ###   ########.fr       */
+/*   Updated: 2023/07/18 16:31:37 by Probook          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
-
-// int	nbr_args(t_token_list *token_list, t_data *data)
-// {
-// 	while (token_list)
-// 	{
-// 		if (token_list == WORD || token_list == STR)
-// 			data->nbr_token ++;
-// 		token_list = token_list->next;
-// 	}
-// 	return (data->nbr_token);
-// }
-
-// int	create_cmd(t_data *data, t_token_list *token_list)
-// {
-// 	char *args;
-// 	int i;
-
-// 	i = 0;
-// 	data->nbr_token = nbr_args(&token_list);
-// 	args = ft_calloc(sizeof(char *), (nbr_args + 1));
-// 	if (args == NULL)
-// 		ft_fail("error calloc for args")
-// 	tmp = t_token_list[i];
-// 	while (tmp)
-// 	{
-// 		if (data->tmp->type == PIPE || data->tmp->type == END)
-// 			break ;
-// 		if (put_args() != 0)
-// 			ft_fail("failed to put args"));
-// 		tmp = t_token_list->next;
-// 	}
-// 	return (0);
-// }
 
 void	fail(char *str)
 {
@@ -103,11 +70,11 @@ int	main(int argc, char **argv, char **env)
 	(void) env;
 	
 	signals();
+	add_history(str);
 	while (1)
 	{
 		if ((str = readline("minishell$:")) == NULL)
 			exit(1);
-		
 	}
 	return (0);
 }

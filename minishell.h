@@ -6,7 +6,7 @@
 /*   By: Probook <Probook@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 13:10:31 by nmuminov          #+#    #+#             */
-/*   Updated: 2023/07/18 14:28:34 by Probook          ###   ########.fr       */
+/*   Updated: 2023/07/18 16:11:42 by Probook          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 # include <string.h>
 # include <readline/readline.h>
 # include <readline/history.h>
-#include <termios.h>
+# include <termios.h>
 
 typedef struct s_data {
 
