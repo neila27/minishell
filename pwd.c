@@ -1,35 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.h                                        :+:      :+:    :+:   */
+/*   pwd.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Probook <Probook@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 13:10:31 by nmuminov          #+#    #+#             */
-/*   Updated: 2023/08/16 14:53:32 by Probook          ###   ########.fr       */
+/*   Updated: 2023/08/16 15:24:22 by Probook          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINISHELL_H
-# define MINISHELL_H
-# include <stdio.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include <string.h>
-# include <fcntl.h>
-# include <sys/wait.h>
-# include <sys/errno.h>
-# include "libft/libft.h"
-# include <signal.h>
-# include <string.h>
-# include <readline/readline.h>
-# include <readline/history.h>
-# include <termios.h>
-# include <limits.h>
+#include "minishell.h"
 
-typedef struct s_
+void	ft_pwd(void)
 {
+	char	*cwd;
 
-}				t_;
+	cwd = malloc(PATH_MAX);
+	if (cwd == NULL)
+		return (NULL);
+	getcwd(cwd, PATH_MAX);
+	printf("%s\n", cwd);
+	free(cwd);
+}
 
-#endif
+// int main()
+// {
+//     ft_pwd();
+//     return 0;
+// }

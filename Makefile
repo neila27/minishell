@@ -6,6 +6,8 @@ RM          = rm -rf
 OBJ         = $(SRC:.c=.o)
 
 SRC =   main.c \
+		echo.c \
+		pwd.c \
 
 HEADER = minishell.h 
 

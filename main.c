@@ -6,16 +6,16 @@
 /*   By: Probook <Probook@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 13:10:31 by nmuminov          #+#    #+#             */
-/*   Updated: 2023/07/18 16:31:37 by Probook          ###   ########.fr       */
+/*   Updated: 2023/08/16 15:16:25 by Probook          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void	fail(char *str)
+void fail(char *str)
 {
-	ft_putstr_fd(str, 1);
-	exit(1);
+    printf("%s\n", str);
+    exit(1);
 }
 
 void	handle_sigint(int signal)
