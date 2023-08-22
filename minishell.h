@@ -6,7 +6,7 @@
 /*   By: Probook <Probook@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 13:10:31 by nmuminov          #+#    #+#             */
-/*   Updated: 2023/08/16 14:53:32 by Probook          ###   ########.fr       */
+/*   Updated: 2023/08/22 12:41:53 by Probook          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@
 # include <termios.h>
 # include <limits.h>
 
-typedef struct s_
-{
+// typedef struct s_
+// {
 
-}				t_;
+// }				t_;
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: Probook <Probook@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 13:10:31 by nmuminov          #+#    #+#             */
-/*   Updated: 2023/08/16 15:16:25 by Probook          ###   ########.fr       */
+/*   Updated: 2023/08/21 15:07:20 by Probook          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,12 +70,11 @@ int	main(int argc, char **argv, char **env)
 	(void) env;
 	
 	signals();
-	add_history(str);
 	while (1)
 	{
 		if ((str = readline("minishell$:")) == NULL)
 			exit(1);
+		add_history(str);
 	}
 	return (0);
 }
-

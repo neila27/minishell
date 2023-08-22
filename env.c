@@ -6,7 +6,7 @@
 /*   By: Probook <Probook@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 13:10:31 by nmuminov          #+#    #+#             */
-/*   Updated: 2023/08/21 12:00:34 by Probook          ###   ########.fr       */
+/*   Updated: 2023/08/21 13:44:24 by Probook          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 //     exit(1);
 // }
 
-int	ft_env(char **env, int argc)
+void	ft_env(char **env, int argc)
 {
 	int i;
 
@@ -30,7 +30,6 @@ int	ft_env(char **env, int argc)
 		printf("%s\n", env[i]);
 		i++;
 	}
-	exit(1);
 }
 
 // int main(int argc, char **argv, char **env)

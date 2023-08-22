@@ -6,13 +6,13 @@
 /*   By: Probook <Probook@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 13:10:31 by nmuminov          #+#    #+#             */
-/*   Updated: 2023/08/16 15:13:50 by Probook          ###   ########.fr       */
+/*   Updated: 2023/08/21 13:45:14 by Probook          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void ft_echo(int argc, char **argv) {
+void    ft_echo(int argc, char **argv) {
     int i;
 
     i = 2;
