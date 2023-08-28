@@ -1,22 +1,4 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: Probook <Probook@student.42.fr>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/09 13:10:31 by nmuminov          #+#    #+#             */
-/*   Updated: 2023/08/21 15:07:20 by Probook          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "minishell.h"
-
-void fail(char *str)
-{
-    printf("%s\n", str);
-    exit(1);
-}
 
 void	handle_sigint(int signal)
 {
@@ -45,7 +27,7 @@ void	sigint(void)
 void	sigquit(void)
 {
 	struct sigaction	action;
-	struct termios        termios_p;
+	struct termios		termios_p;
 	
 	action.sa_handler = SIG_IGN; //ignorer 
 	sigaction(SIGQUIT, &action, NULL);
@@ -62,19 +44,45 @@ void	signals(void)
 
 int	main(int argc, char **argv, char **env)
 {
-	//t_data		data;
-	char		*str;
+	char		*line;
+	t_word 		*lst_word;
+	t_cmd 		**lst_cmd;
+	t_word 		*copy_word;
 
+
+	(void)lst_cmd;
+	(void)lst_word;
 	(void) argc;
 	(void) argv;
 	(void) env;
 	
 	signals();
+
 	while (1)
 	{
-		if ((str = readline("minishell$:")) == NULL)
+		if ((line = readline("[minishell]$ ")) == NULL)
 			exit(1);
-		add_history(str);
+		else
+		{
+			//printf("line : '%s'\n", line);
+			lst_word = lexer(line);
+			copy_word = lst_word;
+			lst_cmd = parser(lst_word, env);
+			env = lst_cmd[0]->envp;
+			if (lst_cmd != NULL)
+				manage_pipe(lst_cmd);
+			free_all_words(copy_word);
+			free_all_cmd(lst_cmd);
+		}
+		add_history(line);
 	}
 	return (0);
 }
+
+//press enter with empty command is crashing
+//pipe is crashing ??
+//when error show can get a new prompt
+//double error showing
+
+
+//ctr d need clean leak

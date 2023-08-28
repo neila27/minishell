@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nmuminov <nmuminov@student.42lausanne.ch>  +#+  +:+       +#+        */
+/*   By: Probook <Probook@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 11:04:55 by nmuminov          #+#    #+#             */
-/*   Updated: 2022/11/09 16:18:35 by nmuminov         ###   ########.fr       */
+/*   Updated: 2023/08/25 16:49:46 by Probook          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,3 +29,4 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	ft_memcpy(s3 + len_s1, s2, len_s2 + 1);
 	return ((char *)(s3));
 }
+
