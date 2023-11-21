@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   pwd.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nmuminov <nmuminov@student.42lausanne.ch>  +#+  +:+       +#+        */
+/*   By: Probook <Probook@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/26 14:13:45 by nmuminov          #+#    #+#             */
-/*   Updated: 2022/11/09 16:19:52 by nmuminov         ###   ########.fr       */
+/*   Created: 2022/12/09 13:10:31 by nmuminov          #+#    #+#             */
+/*   Updated: 2023/09/08 14:54:36 by Probook          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../minishell.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+int	ft_pwd(int argc, char **argv)
 {
-	size_t	i;
+	char	*cwd;
 
-	i = 0;
-	if (n == 0)
+	(void)argc;
+	(void)argv;
+	cwd = malloc(PATH_MAX);
+	if (cwd == NULL)
 		return (0);
-	while (s1[i] && s2[i] && i < n - 1)
-	{
-		if (s1[i] != s2[i])
-			break ;
-		i++;
-	}
-	return ((unsigned char) s1[i] - (unsigned char) s2[i]);
+	if (getcwd(cwd, PATH_MAX) != 0)
+		printf("%s\n", cwd);
+	else
+		fail("getcwd error\n");
+	free(cwd);
+	return (0);
 }

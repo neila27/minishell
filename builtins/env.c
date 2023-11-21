@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   env.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nmuminov <nmuminov@student.42lausanne.ch>  +#+  +:+       +#+        */
+/*   By: Probook <Probook@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/26 14:13:45 by nmuminov          #+#    #+#             */
-/*   Updated: 2022/11/09 16:19:52 by nmuminov         ###   ########.fr       */
+/*   Created: 2022/12/09 13:10:31 by nmuminov          #+#    #+#             */
+/*   Updated: 2023/09/07 15:03:11 by Probook          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../minishell.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+void	ft_env(char **env, int argc)
 {
-	size_t	i;
+	int	i;
 
+	if (argc > 1)
+		fail("env no options");
 	i = 0;
-	if (n == 0)
-		return (0);
-	while (s1[i] && s2[i] && i < n - 1)
+	while (env[i])
 	{
-		if (s1[i] != s2[i])
-			break ;
+		printf("%s\n", env[i]);
 		i++;
 	}
-	return ((unsigned char) s1[i] - (unsigned char) s2[i]);
 }

@@ -1,25 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   echo.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Probook <Probook@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/24 11:50:43 by nmuminov          #+#    #+#             */
-/*   Updated: 2023/08/28 16:44:48 by Probook          ###   ########.fr       */
+/*   Created: 2022/12/09 13:10:31 by nmuminov          #+#    #+#             */
+/*   Updated: 2023/09/08 13:53:37 by Probook          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../minishell.h"
 
-int	ft_strlen(const char *s)
+void	ft_echo(int argc, char **argv)
 {
 	int	i;
 
-	i = 0;
-	if (!s)
-		return (0);
-	while (s[i])
-		i++;
-	return (i);
+	i = 1;
+	if (argc == 1)
+		printf("\n");
+	if (argc >= 2 && ft_strncmp(argv[1], "-n", 3) != 0)
+	{
+		while (argv[i])
+		{
+			printf("%s", argv[i]);
+			if (argv[++i])
+				printf(" ");
+		}
+		printf("\n");
+	}
+	else if (argc >= 2)
+	{
+		i = 2;
+		while (argv[i])
+		{
+			printf("%s", argv[i]);
+			if (argv[++i])
+				printf(" ");
+		}
+	}
 }

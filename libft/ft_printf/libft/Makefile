@@ -1,9 +1,11 @@
 NAME		= libft.a
 CC			= gcc
-CFLAGS		= -Wall -Wextra -Werror -g3
+CFLAGS		= -Wall -Wextra -Werror
 RM			= rm -f
 AR			= ar rc
 RN			= ranlib
+
+OBJ			= ${SRC:.c=.o}
 
 SRC = 	ft_isalpha.c \
 		ft_isdigit.c \
@@ -30,6 +32,7 @@ SRC = 	ft_isalpha.c \
 		ft_strlcpy.c \
 		ft_strlcat.c \
 		ft_substr.c \
+		ft_split.c \
 		ft_itoa.c \
 		ft_strmapi.c \
 		ft_striteri.c \
@@ -40,27 +43,10 @@ SRC = 	ft_isalpha.c \
 		ft_putnbr_fd.c \
 		ft_putstr_fd.c \
 
-BONUS_SRC = ft_lstadd_back.c \
-			ft_lstadd_front.c \
-			ft_lstclear.c \
-			ft_lstdelone.c \
-			ft_lstiter.c \
-			ft_lstlast.c \
-			ft_lstmap.c \
-			ft_lstnew.c \
-			ft_lstsize.c \
-
-
-OBJ			= ${SRC:.c=.o}
-BONUS_OBJ	= ${BONUS_SRC:.c=.o}
 
 all:		${NAME}
 
-${NAME}:	${OBJ} ${BONUS_OBJ}
-			ar rc ${NAME} $^
-			ranlib ${NAME}
-
-bonus:		${BONUS_OBJ}
+${NAME}:	${OBJ}
 			ar rc ${NAME} $^
 			ranlib ${NAME}
 
@@ -72,4 +58,4 @@ fclean:		clean
 
 re:			fclean all
 
-.PHONY:		all bonus clean fclean re
+.PHONY:		all clean fclean re
